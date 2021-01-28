@@ -33,6 +33,12 @@ int main(int argc, char** argv) {
 
     WooFInit();
 
+    int err = WooFCreate(Wname, sizeof(hw_el_stc), 5);
+    if (err < 0) {
+        fprintf(stderr, "couldn't create woof from %s\n", Wname);
+        return 1;
+    }
+
     hw_el_stc el;
     strncpy(el.str, "my first bark", sizeof(el.str));
 
